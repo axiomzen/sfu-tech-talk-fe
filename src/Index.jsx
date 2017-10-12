@@ -44,7 +44,7 @@ function fetchQuestions() {
 }
 
 function upvote(questionId) {
-  return fetch(`${postUrl}/${questionId}/upvote`, {
+  return fetch(`${postUrl}/${questionId}/vote`, {
     method: 'post',
     headers: {
       'x-api-token': 'rDA3kcFNMpQNzkmmDnih'
