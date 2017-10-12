@@ -6,7 +6,7 @@ import Form from './Form.jsx';
 import QuestionList from './QuestionList.jsx';
 
 const postUrl = 'https://sfu-tech-talk.herokuapp.com/questions';
-const api_token = 'sfu';
+const apiToken = 'sfu';
 
 function readLocalStorage() {
   const currentVotedQuestions = localStorage.votedQuestions || '[]';
@@ -24,7 +24,7 @@ function postQuestion(data) {
     method: 'post',
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      'Authorization': api_token
+      'Authorization': apiToken
     },
     body: JSON.stringify(data)
   }).catch(function(err) {
@@ -35,7 +35,7 @@ function postQuestion(data) {
 function fetchQuestions() {
   return fetch(postUrl, {
     headers: {
-      'Authorization': api_token
+      'Authorization': apiToken
     }
   }).then(function(res) {
     return res.json();
@@ -48,7 +48,7 @@ function upvote(questionId) {
   return fetch(`${postUrl}/${questionId}/vote`, {
     method: 'post',
     headers: {
-      'Authorization': api_token
+      'Authorization': apiToken
     }
   }).catch(function(err) {
     window.alert("There's no endpoint set up to upvote a question!");

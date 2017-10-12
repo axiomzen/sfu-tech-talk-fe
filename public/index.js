@@ -550,6 +550,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var postUrl = 'https://sfu-tech-talk.herokuapp.com/questions';
+	var apiToken = 'sfu';
 
 	function readLocalStorage() {
 	  var currentVotedQuestions = localStorage.votedQuestions || '[]';
@@ -567,16 +568,18 @@
 	    method: 'post',
 	    headers: {
 	      "Content-type": "application/json; charset=UTF-8",
-	      'x-api-token': 'rDA3kcFNMpQNzkmmDnih'
+	      'Authorization': apiToken
 	    },
 	    body: JSON.stringify(data)
+	  }).catch(function (err) {
+	    window.alert("There's no endpoint set up to submit a new question!");
 	  });
 	}
 
 	function fetchQuestions() {
 	  return fetch(postUrl, {
 	    headers: {
-	      'x-api-token': 'rDA3kcFNMpQNzkmmDnih'
+	      'Authorization': apiToken
 	    }
 	  }).then(function (res) {
 	    return res.json();
@@ -586,11 +589,13 @@
 	}
 
 	function upvote(questionId) {
-	  return fetch(postUrl + '/' + questionId + '/upvote', {
+	  return fetch(postUrl + '/' + questionId + '/vote', {
 	    method: 'post',
 	    headers: {
-	      'x-api-token': 'rDA3kcFNMpQNzkmmDnih'
+	      'Authorization': apiToken
 	    }
+	  }).catch(function (err) {
+	    window.alert("There's no endpoint set up to upvote a question!");
 	  });
 	}
 
