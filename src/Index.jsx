@@ -86,7 +86,7 @@ class Index extends React.Component {
         return question.id === questionId;
       });
       questions[questionIndex].voted = true;
-      questions[questionIndex].votes++;
+      questions[questionIndex].upvotes++;
       me.setState(
         {questions},
         updateLocalStorage(questionId)

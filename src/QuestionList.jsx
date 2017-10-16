@@ -1,7 +1,7 @@
 import React from 'react';
 
 function sortByVote(questionA, questionB) {
-  return questionB.votes - questionA.votes;
+  return questionB.upvotes - questionA.upvotes;
 }
 
 class QuestionList extends React.Component {

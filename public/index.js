@@ -639,7 +639,7 @@
 	          return question.id === questionId;
 	        });
 	        questions[questionIndex].voted = true;
-	        questions[questionIndex].votes++;
+	        questions[questionIndex].upvotes++;
 	        me.setState({ questions: questions }, updateLocalStorage(questionId));
 	      });
 	    }
@@ -22597,7 +22597,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	function sortByVote(questionA, questionB) {
-	  return questionB.votes - questionA.votes;
+	  return questionB.upvotes - questionA.upvotes;
 	}
 
 	var QuestionList = function (_React$Component) {
