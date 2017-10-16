@@ -584,7 +584,7 @@
 	  }).then(function (res) {
 	    return res.json();
 	  }).catch(function (err) {
-	    window.alert("There's no endpoint set up to retrieve all questions!");
+	    window.alert("There's no endpoint set up to retrieve all questions! Check the browser's developer tools > network tab for more information!");
 	  });
 	}
 
@@ -22629,7 +22629,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'question-votes' },
-	              question.votes
+	              question.upvotes
 	            ),
 	            _react2.default.createElement(
 	              'button',
