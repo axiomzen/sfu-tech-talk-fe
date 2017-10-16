@@ -40,7 +40,7 @@ function fetchQuestions() {
   }).then(function(res) {
     return res.json();
   }).catch(function(err) {
-    window.alert("There's no endpoint set up to retrieve all questions!");
+    window.alert("There's no endpoint set up to retrieve all questions! Check the browser's developer tools > network tab for more information!");
   });
 }
 

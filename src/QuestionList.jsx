@@ -16,7 +16,7 @@ class QuestionList extends React.Component {
       {sortedQuestions.map(function(question) {
         return (
           <div className='question-item' key={question.id}>
-          <div className='question-votes'>{question.votes}</div>
+          <div className='question-votes'>{question.upvotes}</div>
           <button className='question-vote'
             onClick={() => {onUpvote(question.id); }}
             disabled={question.voted} >
