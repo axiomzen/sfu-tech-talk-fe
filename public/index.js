@@ -621,9 +621,9 @@
 	      fetchQuestions().then(function (questions) {
 	        questions = questions || [];
 	        var currentVotedQuestions = readLocalStorage();
-	        questions.map(function (question) {
+	        questions.forEach(function (question) {
 	          if (currentVotedQuestions.includes(question.id)) {
-	            questions.voted = true;
+	            question.voted = true;
 	          }
 	        });
 	        me.setState({ questions: questions });
