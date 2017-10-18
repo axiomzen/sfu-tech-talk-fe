@@ -632,6 +632,9 @@
 	    value: function onUpvote(questionId) {
 	      var me = this;
 	      upvote(questionId).then(function (res) {
+	        if (!res.ok) {
+	          return window.alert("There's no endpoint set up to upvote a question!");
+	        }
 	        console.log('res:', res);
 
 	        var questions = me.state.questions;
@@ -641,9 +644,6 @@
 	        questions[questionIndex].voted = true;
 	        questions[questionIndex].upvotes++;
 	        me.setState({ questions: questions }, updateLocalStorage(questionId));
-	      }).catch(function (err) {
-	        console.log('error: ', error);
-	        window.alert("There's no endpoint set up to upvote a question!");
 	      });
 	    }
 	  }, {

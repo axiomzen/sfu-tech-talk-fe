@@ -79,6 +79,9 @@ class Index extends React.Component {
   onUpvote(questionId) {
     const me = this;
     upvote(questionId).then(function(res) {
+      if (!res.ok) {
+        return window.alert("There's no endpoint set up to upvote a question!");
+      }
       console.log('res:', res);
 
       const questions = me.state.questions;
@@ -91,9 +94,6 @@ class Index extends React.Component {
         {questions},
         updateLocalStorage(questionId)
       );
-    }).catch(function(err) {
-      console.log('error: ', error);
-      window.alert("There's no endpoint set up to upvote a question!");
     });
   }
 
