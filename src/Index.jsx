@@ -50,9 +50,6 @@ function upvote(questionId) {
     headers: {
       'Authorization': apiToken
     }
-  }).catch(function(err) {
-    console.log('error: ', error);
-    window.alert("There's no endpoint set up to upvote a question!");
   });
 }
 
@@ -94,6 +91,9 @@ class Index extends React.Component {
         {questions},
         updateLocalStorage(questionId)
       );
+    }).catch(function(err) {
+      console.log('error: ', error);
+      window.alert("There's no endpoint set up to upvote a question!");
     });
   }
 
