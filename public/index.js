@@ -594,8 +594,6 @@
 	    headers: {
 	      'Authorization': apiToken
 	    }
-	  }).catch(function (err) {
-	    window.alert("There's no endpoint set up to upvote a question!");
 	  });
 	}
 
@@ -633,7 +631,9 @@
 	    key: 'onUpvote',
 	    value: function onUpvote(questionId) {
 	      var me = this;
-	      upvote(questionId).then(function () {
+	      upvote(questionId).then(function (res) {
+	        console.log('res:', res);
+
 	        var questions = me.state.questions;
 	        var questionIndex = questions.findIndex(function (question) {
 	          return question.id === questionId;
@@ -641,6 +641,9 @@
 	        questions[questionIndex].voted = true;
 	        questions[questionIndex].upvotes++;
 	        me.setState({ questions: questions }, updateLocalStorage(questionId));
+	      }).catch(function (err) {
+	        console.log('error: ', error);
+	        window.alert("There's no endpoint set up to upvote a question!");
 	      });
 	    }
 	  }, {
