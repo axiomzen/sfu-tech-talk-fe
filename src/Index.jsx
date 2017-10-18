@@ -51,6 +51,7 @@ function upvote(questionId) {
       'Authorization': apiToken
     }
   }).catch(function(err) {
+    console.log('error: ', error);
     window.alert("There's no endpoint set up to upvote a question!");
   });
 }
@@ -80,7 +81,9 @@ class Index extends React.Component {
 
   onUpvote(questionId) {
     const me = this;
-    upvote(questionId).then(function() {
+    upvote(questionId).then(function(res) {
+      console.log('res:', res);
+
       const questions = me.state.questions;
       const questionIndex = questions.findIndex(function(question) {
         return question.id === questionId;
