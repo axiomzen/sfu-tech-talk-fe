@@ -16,10 +16,4 @@ If you would like to run this locally, you will require node v8.4 to build the p
 
 [ZenHub](https://zenhub.com)
 
-## Tell us how we did & what you want to see next time
-https://goo.gl/forms/V0dypIzIYefAkVdM2
-
-## Our Slides
-[Download slides]()
-
 ## Questions and Answers
